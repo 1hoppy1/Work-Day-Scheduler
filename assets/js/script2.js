@@ -145,19 +145,67 @@ $(document).ready(function () {
     changeBackground5();
 });
 
+//ability to click on text area and change text
+$(".textarea").on("click", "span", function() {
+    var text = $(this).text().trim();
+    //console.log(text);
+    var textInput = $("<textarea>")
+        .addClass("form-control")
+        .val(text);
+    $(this).replaceWith(textInput);
+    textInput.trigger("focus");
+//
+
+
+
+    // recreate p element
+    var taskP = $("<p>")
+    .addClass("textarea")
+    .text(text);
+
+    // replace textarea with p element
+    $(this).replaceWith(taskP);
+
+    console.log(text);
+  });
+//
 
 
 
 
 
+//add event listener
+
+$(".time-block").click(function() {
+    
+
+
+    localStorage.setItem('text', 'textarea');
+
+    alert("Hello jim");
+
+});
 
 
 
+/*
+$("#task-form-modal .btn-primary").click(function() {
 
+});
 
-// Else use ‘day’ theme
-       // $("#foo").addClass("emeaday").removeClass("emeanight");
+var loadTasks = function() {
+    tasks = JSON.parse(localStorage.getItem("tasks"));
+  
+    // if nothing in localStorage, create a new object to track all task status arrays
+    if (!tasks) {
+      tasks = {
+        toDo: [],
+        inProgress: [],
+        inReview: [],
+        done: []
+      };
+    }
+  };
 
-
-
+  */
 
