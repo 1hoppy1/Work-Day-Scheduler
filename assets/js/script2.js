@@ -12,7 +12,7 @@ function changeBackground9() {
     if (currentHour > 9) {
         $("#am9").addClass("past");      
     }
-    if (currentHour === 9) {
+    if (currentHour == 9) {
         $("#am9").addClass("present");
     }
     if (currentHour < 9) {
@@ -28,7 +28,7 @@ function changeBackground10() {
     if (currentHour > 10) {
         $("#am10").addClass("past");      
     }
-    if (currentHour === 10) {
+    if (currentHour == 10) {
         $("#am10").addClass("present");
     }
     if (currentHour < 10) {
@@ -43,7 +43,7 @@ function changeBackground11() {
     if (currentHour > 11) {
         $("#am11").addClass("past");      
     }
-    if (currentHour === 11) {
+    if (currentHour == 11) {
         $("#am11").addClass("present");
     }
     if (currentHour < 11) {
@@ -58,7 +58,7 @@ function changeBackground12() {
     if (currentHour > 12) {
         $("#pm12").addClass("past");      
     }
-    if (currentHour === 12) {
+    if (currentHour == 12) {
         $("#pm12").addClass("present");
     }
     if (currentHour < 12) {
@@ -73,7 +73,7 @@ function changeBackground1() {
     if (currentHour > 13) {
         $("#pm1").addClass("past");      
     }
-    if (currentHour === 13) {
+    if (currentHour == 13) {
         $("#pm1").addClass("present");
     }
     if (currentHour < 13) {
@@ -88,7 +88,7 @@ function changeBackground2() {
     if (currentHour > 14) {
         $("#pm2").addClass("past");      
     }
-    if (currentHour === 14) {
+    if (currentHour == 14) {
         $("#pm2").addClass("present");
     }
     if (currentHour < 14) {
@@ -103,7 +103,7 @@ function changeBackground3() {
     if (currentHour > 15) {
         $("#pm3").addClass("past");      
     }
-    if (currentHour === 15) {
+    if (currentHour == 15) {
         $("#pm3").addClass("present");
     }
     if (currentHour < 15) {
@@ -118,7 +118,7 @@ function changeBackground4() {
     if (currentHour > 16) {
         $("#pm4").addClass("past");      
     }
-    if (currentHour === 16) {
+    if (currentHour == 16) {
         $("#pm4").addClass("present");
     }
     if (currentHour < 16) {
@@ -133,7 +133,7 @@ function changeBackground5() {
     if (currentHour > 17) {
         $("#pm5").addClass("past");      
     }
-    if (currentHour === 17) {
+    if (currentHour == 17) {
         $("#pm5").addClass("present");
     }
     if (currentHour < 17) {
@@ -146,66 +146,82 @@ $(document).ready(function () {
 });
 
 //ability to click on text area and change text
-$(".textarea").on("click", "span", function() {
-    var text = $(this).text().trim();
-    //console.log(text);
-    var textInput = $("<textarea>")
-        .addClass("form-control")
-        .val(text);
-    $(this).replaceWith(textInput);
-    textInput.trigger("focus");
+// $(".textarea").on("click", "span", function() {
+//     var text = $(this).text().trim();
+//     console.log(text);
+//     var textInput = $("<textarea>")
+//         .addClass("form-control")
+//         .val(text);
+//     $(this).replaceWith(textInput);
+//     textInput.trigger("focus");
+
+//     console.log();
+// });
+
 //
-
-
-
-    // recreate p element
-    var taskP = $("<p>")
-    .addClass("textarea")
-    .text(text);
-
-    // replace textarea with p element
-    $(this).replaceWith(taskP);
-
-    console.log(text);
-  });
-//
-
-
-
-
 
 //add event listener
 
-$(".time-block").click(function() {
+
+// $(".time-block").click(function() {
+//     //template data
+//     var name = $("#name").val();
+// })
+
+$(".textarea").on("click", function(e) {
+    elid = e.target.id
+    p = document.getElementById(elid)
+    tb = document.getElementById(elid + 'tb')
+    tb.value = p.innerHTML
+    p.style.display = 'none'
+    tb.style.display = 'block'
+})
+
+
+function saveAndStore(elid) {
     
+     //alert('it works');
+     p = document.getElementById(elid)
+     tb = document.getElementById(elid + 'tb')
+     p.style.display = 'block'
+    tb.style.display = 'none'
+    localStorage.setItem(elid, tb.value)
+     p.innerHTML = localStorage.getItem(elid);
+
+    // alert("hi jim");
+ }
 
 
-    localStorage.setItem('text', 'textarea');
-
-    alert("Hello jim");
-
-});
 
 
 
-/*
-$("#task-form-modal .btn-primary").click(function() {
 
-});
+ function loadItems() {
+    
+    
+    
+    am10p = document.getElementById('am10-p')
+    am10p.innerHTML = localStorage.getItem('am10-p')
+    
+    am11p = document.getElementById('am11-p')
+    am11p.innerHTML = localStorage.getItem('am11-p')
+    
+    pm12p = document.getElementById('pm12-p')
+    pm12p.innerHTML = localStorage.getItem('pm12-p')
+    
+    pm1p = document.getElementById('pm1-p')
+    pm1p.innerHTML = localStorage.getItem('pm1-p')
+    
+    pm2p = document.getElementById('pm2-p')
+    pm2p.innerHTML = localStorage.getItem('pm2-p')
+    
+    pm3p = document.getElementById('pm3-p')
+    pm3p.innerHTML = localStorage.getItem('pm3-p')
+    
+    pm4p = document.getElementById('pm4-p')
+    pm4p.innerHTML = localStorage.getItem('pm4-p')
+    
+    pm5p = document.getElementById('pm5-p')
+    pm5p.innerHTML = localStorage.getItem('pm5-p')
 
-var loadTasks = function() {
-    tasks = JSON.parse(localStorage.getItem("tasks"));
-  
-    // if nothing in localStorage, create a new object to track all task status arrays
-    if (!tasks) {
-      tasks = {
-        toDo: [],
-        inProgress: [],
-        inReview: [],
-        done: []
-      };
-    }
-  };
-
-  */
-
+ }
