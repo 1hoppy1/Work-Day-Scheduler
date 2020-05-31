@@ -13,6 +13,11 @@ body {
   padding: 10px;
 }
 
+/*new
+.am9 {
+  background-color: grey;
+}*/
+
 .jumbotron {
   text-align: center;
   background-color: transparent;
@@ -75,7 +80,7 @@ body {
   vertical-align: middle;
 }
 
-.saveBtn i:hover {
+.saveBtn:hover {
   font-size: 20px;
   transition: all .3s ease-in-out;
 }
