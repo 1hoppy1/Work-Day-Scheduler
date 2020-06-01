@@ -5,8 +5,6 @@ $(currentDay).html(day)
 // Change color of box depending on what time of day it is
 
 var currentHour = moment().format('H')
-console.log(currentHour)
-
 
 function changeBackground9() {   
     if (currentHour > 9) {
@@ -22,7 +20,6 @@ function changeBackground9() {
 $(document).ready(function () {
     changeBackground9();
 });
-
 
 function changeBackground10() {   
     if (currentHour > 10) {
@@ -139,34 +136,11 @@ function changeBackground5() {
     if (currentHour < 17) {
         $("#pm5").addClass("future");
     }
-    console.log(currentHour);
 }
 $(document).ready(function () {
     changeBackground5();
 });
 
-//ability to click on text area and change text
-// $(".textarea").on("click", "span", function() {
-//     var text = $(this).text().trim();
-//     console.log(text);
-//     var textInput = $("<textarea>")
-//         .addClass("form-control")
-//         .val(text);
-//     $(this).replaceWith(textInput);
-//     textInput.trigger("focus");
-
-//     console.log();
-// });
-
-//
-
-//add event listener
-
-
-// $(".time-block").click(function() {
-//     //template data
-//     var name = $("#name").val();
-// })
 
 $(".textarea").on("click", function(e) {
     elid = e.target.id
@@ -175,30 +149,14 @@ $(".textarea").on("click", function(e) {
     tb.value = p.innerHTML
     p.style.display = 'none'
     tb.style.display = 'block'
-})
-
-
-function saveAndStore(elid) {
     
-     //alert('it works');
-     p = document.getElementById(elid)
-     tb = document.getElementById(elid + 'tb')
-     p.style.display = 'block'
-    tb.style.display = 'none'
-    localStorage.setItem(elid, tb.value)
-     p.innerHTML = localStorage.getItem(elid);
-
-    // alert("hi jim");
- }
-
-
-
-
-
+})
 
  function loadItems() {
     
     
+    am9p = document.getElementById('am9-p')
+    am9p.innerHTML = localStorage.getItem('am9-p')
     
     am10p = document.getElementById('am10-p')
     am10p.innerHTML = localStorage.getItem('am10-p')

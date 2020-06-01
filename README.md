@@ -2,6 +2,8 @@
 
 https://1hoppy1.github.io/Work-Day-Scheduler
 
+![Work Day Scheduler image](./assets/images/workdayscheduler.png)
+
 
 Disk Image Credit
 Artist: emey87
